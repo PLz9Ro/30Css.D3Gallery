@@ -8,20 +8,20 @@ var gallery = document.querySelector('.gallery')
 var currentIndex = 0;
 
 function showGallery (){
-    if(currentIndex == 0){
-        prev.classList.add('hide')
+     if(currentIndex == 0){
+       prev.classList.add('hide')
     }
-    else{
-        prev.classList.remove('hide')
+     else{
+     prev.classList.remove('hide')
     }
 
     if(currentIndex == images.length - 1){
         next.classList.add('hide')
-    }
-    else{
-        next.classList.remove('hide')
-    }
-    // dispaly
+     }
+     else{
+       next.classList.remove('hide')
+     }
+    // dispaly 
     galleryImg.src= images[currentIndex].src // gắn ảnh img = vị trí dc gắn
     gallery.classList.add('show') // add ảnh và show ra
 }
@@ -51,15 +51,18 @@ document.addEventListener('keydown',function(e){
 })
 
 prev.addEventListener('click',function(){
-    if (currentIndex > 0 ){
-        currentIndex --
+    if(currentIndex >0){
+        currentIndex--
+        showGallery()
+
+    }
+})
+
+next.addEventListener('click',function(){
+    if (currentIndex < (images.length -1)){
+        currentIndex++
         showGallery()
     }
 })
 
-prev.addEventListener('click',function(){
-    if (currentIndex < images.length -1 ){
-        currentIndex ++
-        showGallery()
-    }
-})
+
